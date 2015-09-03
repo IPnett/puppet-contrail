@@ -4,7 +4,9 @@
 #
 class contrail::config::service {
 
-  service {'supervisor-config' :
+  $config_service = [ 'contrail-api', 'contrail-discovery', 'contrail-schema', 'contrail-svc-monitor', 'contrail-ifmap-server' ]
+
+  service { $config_service:
     ensure => running,
     enable => true,
   }
