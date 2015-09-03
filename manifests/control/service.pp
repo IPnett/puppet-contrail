@@ -4,7 +4,9 @@
 #
 class contrail::control::service {
 
-  service {'supervisor-control' :
+  $control_service = [ 'contrail-control', 'contrail-dns', 'contrail-named' ]
+
+  service { $control_service:
     ensure => running,
     enable => true,
   }
