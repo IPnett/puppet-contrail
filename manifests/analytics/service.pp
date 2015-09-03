@@ -4,7 +4,9 @@
 #
 class contrail::analytics::service {
 
-  service {'supervisor-analytics' :
+  $analytic_services = ['contrail-analytics-api', 'contrail-collector', 'contrail-query-engine', 'contrail-snmp-collector', 'contrail-topology']
+
+  service {"$analytic_services" :
     ensure => running,
     enable => true,
   }
