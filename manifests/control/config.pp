@@ -41,6 +41,12 @@ class contrail::control::config (
   create_resources('contrail_control_config', $control_config)
   create_resources('contrail_control_nodemgr_config', $control_nodemgr_config)
 
+  if $forwarder {
+    $forwarders_option = join([join($forwarders, ';'),';'], '')
+  } else {
+    $forwarders_option = ''
+  }
+
   file { '/etc/contrail/dns/contrail-named.conf' :
     ensure  => file,
     content => template('contrail/contrail-named.conf.erb'),
