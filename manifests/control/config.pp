@@ -42,7 +42,11 @@ class contrail::control::config (
   create_resources('contrail_control_nodemgr_config', $control_nodemgr_config)
 
   if $forwarder {
-    $forwarders_option = join([join($forwarder, ';'),';'], '')
+    if is_array($forwarder) {
+      $forwarders_option = join([join($forwarder, ';'),';'], '')
+    } else {
+      $forwarders_option = "${forwarder};"
+    }
   } else {
     $forwarders_option = ''
   }
