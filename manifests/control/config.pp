@@ -37,7 +37,7 @@ class contrail::control::config (
   validate_hash($control_config)
   validate_hash($control_nodemgr_config)
 
-  contrail_dns_config = {
+  contrail_dns_config {
     'DEFAULT/rndc_secret': value => $secret;
   }
 
