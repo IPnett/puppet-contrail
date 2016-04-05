@@ -45,6 +45,7 @@ class contrail::config::config (
   $device_manager_config   = {},
   $svc_monitor_config      = {},
   $basicauthusers_property = [],
+  $ifmap_server_logfile    = '/var/log/contrail/ifmap-server.log',
 ) {
 
   validate_hash($api_config)
